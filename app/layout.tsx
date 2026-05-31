@@ -1,11 +1,17 @@
 'use client';
 
+import dynamic from "next/dynamic";
 import { Anton, Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { useTheme } from "@/context/ThemeContext";
+
+const GalaxyBackground = dynamic(
+  () => import("@/components/visuals/GalaxyBackground").then((mod) => mod.GalaxyBackground),
+  { ssr: false },
+);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,9 +42,12 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
     <div className={`rich-shell min-h-screen transition-colors duration-300 ${
       isDark ? 'bg-[#050505] text-[#f5f5f0]' : 'bg-[#f7f6f0] text-[#111111]'
     } ${isDark ? 'rich-dark' : 'rich-light'}`}>
+      <GalaxyBackground />
       <Navbar />
-      <main>{children}</main>
-      <Footer />
+      <main className="relative z-10">{children}</main>
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 }
