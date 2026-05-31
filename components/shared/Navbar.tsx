@@ -47,7 +47,7 @@ export function Navbar() {
           <a
             href="#contact"
             aria-label="Contact"
-            className={`icon-button md:hidden ${
+            className={`icon-button nav-mobile-contact ${
               isDark
                 ? 'border-white/12 bg-white/[0.04] text-white/74 hover:text-white'
                 : 'border-black/12 bg-white/70 text-black/70 hover:text-black'
