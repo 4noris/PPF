@@ -60,7 +60,7 @@ export function TechStackSection() {
                   isDark ? 'text-white' : 'text-black'
                 }`}
               >
-                <p className={`relative z-10 font-mono text-xs ${isDark ? 'text-[#baf6cf]/55' : 'text-[#234f3b]/50'}`}>
+                <p className={`relative z-10 font-mono text-xs ${isDark ? 'text-[#d8b4fe]/62' : 'text-[#234f3b]/50'}`}>
                   {String(index + 1).padStart(2, '0')}
                 </p>
                 <h3 className="relative z-10 mt-8 text-2xl font-semibold tracking-[-0.035em]">

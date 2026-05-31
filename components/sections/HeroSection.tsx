@@ -3,13 +3,18 @@
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
 import { MagneticButton } from '../ui/MagneticButton';
-import { ArrowDownRight } from 'lucide-react';
+import { Activity, ArrowDownRight, Network, ShieldCheck } from 'lucide-react';
 import { profile } from '@/lib/profile';
 
 export function HeroSection() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const titleLetters = ['M', 'E', 'T', 'A', 'F', 'I', 'V', 'E'];
+  const heroSignals = [
+    { label: 'MT5 Ops', icon: Activity },
+    { label: 'Bridge Routing', icon: Network },
+    { label: 'Risk Controls', icon: ShieldCheck },
+  ];
 
   return (
     <section id="home" className="hero-rich-surface relative min-h-screen overflow-hidden px-4 pb-8 pt-24 md:pt-28">
@@ -56,6 +61,19 @@ export function HeroSection() {
             }`}>
               {profile.summary}
             </p>
+
+            <div className="hero-signal-strip mt-6" aria-label="Core operating areas">
+              {heroSignals.map((signal) => {
+                const Icon = signal.icon;
+
+                return (
+                  <span key={signal.label} className="hero-signal-chip">
+                    <Icon size={14} />
+                    {signal.label}
+                  </span>
+                );
+              })}
+            </div>
 
             <div className="mt-7 flex flex-wrap justify-center gap-3">
               <MagneticButton href="#projects" variant="primary" size="md">

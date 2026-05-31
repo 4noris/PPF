@@ -3,6 +3,7 @@
 import { useTheme } from '@/context/ThemeContext';
 import { profile } from '@/lib/profile';
 import { BrandMark } from './BrandMark';
+import { ExternalLink, Mail } from 'lucide-react';
 
 export function Footer() {
   const { theme } = useTheme();
@@ -17,15 +18,19 @@ export function Footer() {
           <BrandMark compact />
           <p>Copyright 2026 {profile.name}</p>
         </div>
-        <div className="flex flex-wrap gap-4">
-          <a href={`mailto:${profile.email}`}>
+        <div className="footer-actions">
+          <a href={`mailto:${profile.email}`} className="footer-action" aria-label="Email">
+            <Mail size={15} />
             Email
           </a>
           <a
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            className="footer-action"
+            aria-label="LinkedIn"
           >
+            <ExternalLink size={15} />
             LinkedIn
           </a>
         </div>

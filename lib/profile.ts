@@ -5,7 +5,7 @@ export const profile = {
   email: 'shaikhnoris746@gmail.com',
   phone: '+91 9309789476',
   linkedin: 'https://linkedin.com/in/norisshaikh',
-  linkedinLabel: 'linkedin.com/in/norisshaikh',
+  linkedinLabel: 'LinkedIn',
   summary:
     'Broker infrastructure systems engineer building broker-side trading systems, prop firm operations tools, automation workflows, and financial infrastructure solutions. Skilled across MT5 Manager/Admin, Match-Trader, TradeLocker, bridge integrations, liquidity routing, execution monitoring, CRM operations, and broker-side automation.',
   impact:

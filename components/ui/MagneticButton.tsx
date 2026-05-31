@@ -64,6 +64,8 @@ export function MagneticButton({
         target={target}
         rel={rel}
         className={buttonClassName}
+        whileHover={{ y: -2 }}
+        whileTap={{ scale: 0.98 }}
       >
         {content}
       </motion.a>
@@ -75,6 +77,8 @@ export function MagneticButton({
       onClick={onClick}
       type={type}
       className={buttonClassName}
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.98 }}
     >
       {content}
     </motion.button>

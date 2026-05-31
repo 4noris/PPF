@@ -67,11 +67,11 @@ export function ProductsSection() {
                       }`}
                     >
                       <div className="relative z-10 flex items-start justify-between gap-4">
-                        <p className={`font-mono text-xs ${isDark ? 'text-[#baf6cf]/60' : 'text-[#234f3b]/55'}`}>
+                        <p className={`font-mono text-xs ${isDark ? 'text-[#d8b4fe]/68' : 'text-[#234f3b]/55'}`}>
                           {String(index + 1).padStart(2, '0')}
                         </p>
                         <div
-                          className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition-colors ${
+                          className={`project-action grid h-9 w-9 shrink-0 place-items-center rounded-full border transition-colors ${
                             isDark
                               ? 'border-white/14 bg-white/[0.04] text-white/52'
                               : 'border-black/10 bg-white/70 text-black/42'

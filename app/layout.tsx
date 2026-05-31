@@ -6,6 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
+import { ScrollProgressBar } from "@/components/shared/ScrollProgressBar";
 
 const GalaxyBackground = dynamic(
   () => import("@/components/visuals/GalaxyBackground").then((mod) => mod.GalaxyBackground),
@@ -37,6 +38,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
   return (
     <div className="rich-shell rich-dark min-h-screen bg-[#050505] text-[#f5f5f0]">
       <GalaxyBackground />
+      <ScrollProgressBar />
       <Navbar />
       <main className="relative z-10">{children}</main>
       <div className="relative z-10">

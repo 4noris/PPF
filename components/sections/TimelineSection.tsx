@@ -55,7 +55,7 @@ export function TimelineSection() {
                 }`}
               >
                 <div className="relative z-10">
-                  <p className={`font-mono text-xs ${isDark ? 'text-[#baf6cf]/55' : 'text-[#234f3b]/50'}`}>
+                  <p className={`font-mono text-xs ${isDark ? 'text-[#d8b4fe]/62' : 'text-[#234f3b]/50'}`}>
                     {item.period}
                   </p>
                   <p className={`mt-2 text-xs uppercase tracking-[0.18em] ${

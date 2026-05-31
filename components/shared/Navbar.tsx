@@ -46,7 +46,8 @@ export function Navbar() {
           <a
             href="#contact"
             aria-label="Contact"
-            className={`icon-button ${
+            title="Contact"
+            className={`icon-button nav-contact-button ${
               isDark
                 ? 'border-white/12 bg-white/[0.04] text-white/74 hover:border-[#c084fc]/45 hover:bg-[#8b5cf6]/15 hover:text-white'
                 : 'border-black/12 bg-white/70 text-black/70 hover:text-black'

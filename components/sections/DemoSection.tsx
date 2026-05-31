@@ -4,12 +4,18 @@ import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
 import { MagneticButton } from '../ui/MagneticButton';
 import { useState } from 'react';
-import { ExternalLink, Mail, Phone, Send } from 'lucide-react';
+import { ExternalLink, Mail, MessageCircle, Send } from 'lucide-react';
 import { profile } from '@/lib/profile';
 
 export function DemoSection() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+  const whatsappHref = `https://wa.me/${profile.phone.replace(/\D/g, '')}`;
+  const contactMethods = [
+    { icon: Mail, name: 'Email', detail: 'Project inquiry', href: `mailto:${profile.email}` },
+    { icon: MessageCircle, name: 'WhatsApp', detail: 'Fast availability check', href: whatsappHref, external: true },
+    { icon: ExternalLink, name: 'LinkedIn', detail: 'Professional profile', href: profile.linkedin, external: true },
+  ];
 
   const [formData, setFormData] = useState({
     name: '',
@@ -21,7 +27,7 @@ export function DemoSection() {
 
   const fieldClassName = `w-full rounded-lg border px-4 py-3 text-sm transition-colors ${
     isDark
-      ? 'border-white/12 bg-white/[0.045] text-white placeholder:text-white/34 focus:border-[#baf6cf]/45'
+      ? 'border-white/12 bg-[#12081f]/50 text-white placeholder:text-white/34 focus:border-[#d8b4fe]/50'
       : 'border-black/12 bg-white/72 text-black placeholder:text-black/36 focus:border-[#4d8063]/35'
   }`;
 
@@ -61,31 +67,36 @@ export function DemoSection() {
               }`}>
                 Contact
               </p>
-              <h2 className="mt-4 text-5xl font-semibold leading-[0.95] tracking-[-0.055em]">
+              <h2 className="mt-4 text-4xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-5xl">
                 Tell me about the broker setup, role, or system you need built.
               </h2>
 
-              <div className="mt-10 space-y-4">
-                {[
-                  { icon: Mail, label: profile.email, href: `mailto:${profile.email}` },
-                  { icon: Phone, label: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
-                  { icon: ExternalLink, label: profile.linkedinLabel, href: profile.linkedin, external: true },
-                ].map((item) => {
+              <div className="contact-method-grid mt-10">
+                {contactMethods.map((item, index) => {
                   const Icon = item.icon;
 
                   return (
-                    <a
-                      key={item.label}
+                    <motion.a
+                      key={item.name}
                       href={item.href}
                       target={item.external ? '_blank' : undefined}
                       rel={item.external ? 'noopener noreferrer' : undefined}
-                      className={`flex items-center gap-3 text-sm ${
-                        isDark ? 'text-white/60' : 'text-black/60'
-                      }`}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.28, delay: index * 0.04 }}
+                      viewport={{ once: true }}
+                      className="contact-method-card"
+                      aria-label={item.name}
                     >
-                      <Icon size={16} />
-                      {item.label}
-                    </a>
+                      <span className="contact-method-icon" aria-hidden="true">
+                        <Icon size={17} />
+                      </span>
+                      <span>
+                        <span className="contact-method-name">{item.name}</span>
+                        <span className="contact-method-detail">{item.detail}</span>
+                      </span>
+                    </motion.a>
                   );
                 })}
               </div>
@@ -97,7 +108,7 @@ export function DemoSection() {
               transition={{ duration: 0.35 }}
               viewport={{ once: true }}
               onSubmit={handleSubmit}
-              className={`rich-card grid gap-4 rounded-2xl p-5 ${
+              className={`rich-card contact-form-panel grid gap-4 rounded-2xl p-5 ${
                 isDark ? 'text-white' : 'text-black'
               }`}
             >
