@@ -14,7 +14,6 @@ export function Navbar() {
     { label: 'Work', href: '#projects' },
     { label: 'Systems', href: '#stack' },
     { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -47,27 +46,14 @@ export function Navbar() {
           <a
             href="#contact"
             aria-label="Contact"
-            className={`icon-button nav-mobile-contact ${
+            className={`icon-button ${
               isDark
-                ? 'border-white/12 bg-white/[0.04] text-white/74 hover:text-white'
+                ? 'border-white/12 bg-white/[0.04] text-white/74 hover:border-[#c084fc]/45 hover:bg-[#8b5cf6]/15 hover:text-white'
                 : 'border-black/12 bg-white/70 text-black/70 hover:text-black'
             }`}
           >
-            <Send size={15} />
+            <Send size={16} />
           </a>
-
-          <a
-            href="#contact"
-            className={`hidden h-9 items-center gap-2 rounded-full border px-4 text-sm font-medium md:inline-flex ${
-              isDark
-                ? 'border-white/14 bg-white/[0.08] text-white/82 hover:bg-white hover:text-black'
-                : 'border-black/12 bg-black/[0.06] text-black/78 hover:bg-black hover:text-white'
-            }`}
-          >
-            <Send size={14} />
-            Contact
-          </a>
-
         </div>
       </div>
     </motion.nav>

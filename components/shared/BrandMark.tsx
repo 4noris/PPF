@@ -19,7 +19,7 @@ export function BrandMark({ compact = false, className = '' }: BrandMarkProps) {
       </span>
       {!compact && (
         <span className="brand-wordmark">
-          Noris
+          MetaFive
         </span>
       )}
     </a>

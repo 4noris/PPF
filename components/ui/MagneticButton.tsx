@@ -38,10 +38,10 @@ export function MagneticButton({
 
   const variantClasses = {
     primary: isDark
-      ? 'bg-[#f5f5f0] text-[#050505] hover:bg-[#baf6cf]'
+      ? 'bg-[#f6f0ff] text-[#12061f] shadow-[0_0_34px_rgba(168,85,247,0.18)] hover:bg-[#c084fc]'
       : 'bg-[#141414] text-white hover:bg-[#234f3b]',
     secondary: isDark
-      ? 'border border-white/16 bg-white/[0.055] text-[#f5f5f0] hover:border-white/34 hover:bg-white/[0.11]'
+      ? 'border border-[#d8b4fe]/22 bg-[#8b5cf6]/10 text-[#f8f5ff] hover:border-[#d8b4fe]/45 hover:bg-[#8b5cf6]/18'
       : 'border border-black/12 bg-white/60 text-[#141414] hover:border-black/28 hover:bg-white',
     tertiary: isDark
       ? 'text-[#f5f5f0]'

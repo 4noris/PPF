@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Noris Shaikh',
+  name: 'MetaFive',
   title: 'Systems Engineer & Software Developer',
   specialty: 'Broker Infrastructure Systems Engineer',
   email: 'shaikhnoris746@gmail.com',

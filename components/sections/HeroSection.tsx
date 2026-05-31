@@ -4,29 +4,26 @@ import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
 import { MagneticButton } from '../ui/MagneticButton';
 import { ArrowDownRight } from 'lucide-react';
-import { AbstractHeroVisual } from '../visuals/AbstractHeroVisual';
 import { profile } from '@/lib/profile';
 
 export function HeroSection() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-  const titleLetters = ['N', 'O', 'R', 'I', 'S'];
+  const titleLetters = ['M', 'E', 'T', 'A', 'F', 'I', 'V', 'E'];
 
   return (
     <section id="home" className="hero-rich-surface relative min-h-screen overflow-hidden px-4 pb-8 pt-24 md:pt-28">
       <div className={`hero-frame mx-auto flex min-h-[calc(100vh-8rem)] max-w-[92rem] flex-col justify-between overflow-hidden ${
         isDark ? 'hero-frame-dark' : 'hero-frame-light'
       }`}>
-        <AbstractHeroVisual />
-
         <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 py-16 text-center md:px-10">
           <motion.div
             className="hero-title-stage group flex w-full justify-center"
           >
             <motion.div className="hero-title-3d relative w-full">
               <h1
-                aria-label="Noris"
-                className={`hero-name relative mx-auto max-w-6xl text-[5.2rem] font-normal uppercase leading-[0.8] sm:text-[7rem] md:text-[10rem] lg:text-[12rem] xl:text-[14rem] ${
+                aria-label="MetaFive"
+                className={`hero-name relative mx-auto max-w-7xl text-[3.7rem] font-normal uppercase leading-[0.8] sm:text-[5.4rem] md:text-[7.4rem] lg:text-[8.8rem] xl:text-[10.2rem] ${
                   isDark ? 'hero-name-dark' : 'hero-name-light'
                 }`}
               >

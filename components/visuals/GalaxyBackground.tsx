@@ -45,10 +45,10 @@ function GalaxyDisc({ count, opacity, reducedMotion }: GalaxyDiscProps) {
     const rng = createRng(3907);
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const coreColor = new THREE.Color('#fff2c4');
+    const coreColor = new THREE.Color('#f4e8ff');
     const blueArm = new THREE.Color('#8fb7ff');
-    const greenArm = new THREE.Color('#baf6cf');
-    const roseArm = new THREE.Color('#ff9ab3');
+    const violetArm = new THREE.Color('#c084fc');
+    const roseArm = new THREE.Color('#f0abfc');
     const arms = 5;
     const maxRadius = 8.8;
 
@@ -66,7 +66,7 @@ function GalaxyDisc({ count, opacity, reducedMotion }: GalaxyDiscProps) {
       positions[index + 2] = Math.sin(angle) * radius + scatter * 0.58;
 
       const color = coreColor.clone();
-      const armColor = i % 11 === 0 ? roseArm : i % 6 === 0 ? greenArm : blueArm;
+      const armColor = i % 11 === 0 ? roseArm : i % 6 === 0 ? violetArm : blueArm;
       const edgeMix = Math.min(radius / maxRadius, 1);
       const brightness = 0.62 + rng() * 0.38;
 
@@ -131,9 +131,9 @@ function StarShell({ count, opacity, radius, reducedMotion, seed, size, speed }:
     const rng = createRng(seed);
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const cool = new THREE.Color('#dfe9ff');
-    const warm = new THREE.Color('#ffe4b8');
-    const signal = new THREE.Color('#baf6cf');
+    const cool = new THREE.Color('#e7ddff');
+    const warm = new THREE.Color('#f0abfc');
+    const signal = new THREE.Color('#c084fc');
 
     for (let i = 0; i < count; i += 1) {
       const index = i * 3;
@@ -190,10 +190,10 @@ function StarShell({ count, opacity, radius, reducedMotion, seed, size, speed }:
 function GalaxyScene({ isDark, reducedMotion }: { isDark: boolean; reducedMotion: boolean }) {
   return (
     <>
-      <GalaxyDisc count={isDark ? 3200 : 1900} opacity={isDark ? 0.7 : 0.18} reducedMotion={reducedMotion} />
+      <GalaxyDisc count={isDark ? 3800 : 1900} opacity={isDark ? 0.86 : 0.18} reducedMotion={reducedMotion} />
       <StarShell
-        count={isDark ? 1800 : 900}
-        opacity={isDark ? 0.5 : 0.17}
+        count={isDark ? 2200 : 900}
+        opacity={isDark ? 0.62 : 0.17}
         radius={22}
         reducedMotion={reducedMotion}
         seed={8821}
@@ -201,8 +201,8 @@ function GalaxyScene({ isDark, reducedMotion }: { isDark: boolean; reducedMotion
         speed={0.006}
       />
       <StarShell
-        count={isDark ? 700 : 320}
-        opacity={isDark ? 0.8 : 0.22}
+        count={isDark ? 900 : 320}
+        opacity={isDark ? 0.9 : 0.22}
         radius={13}
         reducedMotion={reducedMotion}
         seed={1741}
@@ -210,13 +210,13 @@ function GalaxyScene({ isDark, reducedMotion }: { isDark: boolean; reducedMotion
         speed={-0.01}
       />
       <Stars
-        count={isDark ? 3600 : 1600}
+        count={isDark ? 4600 : 1600}
         depth={48}
         fade
         factor={isDark ? 3.6 : 2.3}
         radius={86}
-        saturation={0.38}
-        speed={reducedMotion ? 0 : isDark ? 0.34 : 0.12}
+        saturation={0.62}
+        speed={reducedMotion ? 0 : isDark ? 0.38 : 0.12}
       />
     </>
   );
