@@ -402,7 +402,7 @@ section[id] {
 
 .hero-subtitle {
   width: 100%;
-  max-width: 42rem;
+  max-width: min(100%, 68rem);
   font-family: var(--font-display), var(--font-geist-sans), Arial, Helvetica, sans-serif;
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.62);
 }
@@ -414,6 +414,10 @@ section[id] {
 .animated-summary-word {
   display: inline-block;
   will-change: transform, opacity, filter;
+}
+
+.hero-summary-break {
+  display: none;
 }
 
 .hero-signal-strip {
@@ -818,6 +822,12 @@ a {
 
   .expertise-card {
     min-height: 4.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-summary-break {
+    display: block;
   }
 }
 

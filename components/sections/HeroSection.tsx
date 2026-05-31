@@ -12,6 +12,7 @@ export function HeroSection() {
   const isDark = theme === 'dark';
   const titleLetters = ['M', 'E', 'T', 'A', 'F', 'I', 'V', 'E'];
   const summaryWords = profile.summary.split(' ');
+  const desktopLineBreakAfterWord = 11;
   const heroSignals = [
     { label: 'MT5 Ops', icon: Activity },
     { label: 'Bridge Routing', icon: Network },
@@ -56,11 +57,11 @@ export function HeroSection() {
               opacity: { duration: 0.65, delay: 0.36, ease: 'easeOut' },
               y: { duration: 0.65, delay: 0.36, ease: 'easeOut' },
             }}
-            className="mt-7 flex max-w-4xl flex-col items-center sm:mt-8"
+            className="mt-7 flex max-w-6xl flex-col items-center sm:mt-8"
           >
             <motion.p
               aria-label={profile.summary}
-              className={`hero-subtitle text-balance text-base leading-7 sm:text-lg ${
+              className={`hero-subtitle text-base leading-7 sm:text-lg ${
                 isDark ? 'text-white/78' : 'text-black/74'
               }`}
               initial="hidden"
@@ -100,6 +101,9 @@ export function HeroSection() {
                     {word}
                   </motion.span>
                   {index < summaryWords.length - 1 ? ' ' : null}
+                  {index === desktopLineBreakAfterWord ? (
+                    <br className="hero-summary-break" aria-hidden="true" />
+                  ) : null}
                 </Fragment>
               ))}
             </motion.p>
@@ -121,9 +125,6 @@ export function HeroSection() {
               <MagneticButton href="#projects" variant="primary" size="md">
                 See Projects
                 <ArrowDownRight size={15} />
-              </MagneticButton>
-              <MagneticButton href="#contact" variant="secondary" size="md">
-                Book a Call
               </MagneticButton>
             </div>
           </motion.div>
