@@ -685,10 +685,18 @@ section[id] {
 }
 
 .contact-form-panel {
-  background:
-    radial-gradient(circle at 14% 4%, rgba(216, 180, 254, 0.13), transparent 34%),
-    radial-gradient(circle at 88% 72%, rgba(103, 232, 249, 0.055), transparent 36%),
-    rgba(10, 6, 28, 0.28);
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.contact-form-panel::before {
+  opacity: 0;
+}
+
+.contact-form-panel:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .footer-actions {
