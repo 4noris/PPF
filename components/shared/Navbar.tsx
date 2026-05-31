@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
-import { Moon, Send, Sun } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { BrandMark } from './BrandMark';
 
 export function Navbar() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === 'dark';
 
   const menuItems = [
@@ -44,17 +44,17 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle color theme"
-            className={`icon-button ${
+          <a
+            href="#contact"
+            aria-label="Contact"
+            className={`icon-button md:hidden ${
               isDark
                 ? 'border-white/12 bg-white/[0.04] text-white/74 hover:text-white'
                 : 'border-black/12 bg-white/70 text-black/70 hover:text-black'
             }`}
           >
-            {isDark ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
+            <Send size={15} />
+          </a>
 
           <a
             href="#contact"

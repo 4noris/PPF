@@ -6,7 +6,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
-import { useTheme } from "@/context/ThemeContext";
 
 const GalaxyBackground = dynamic(
   () => import("@/components/visuals/GalaxyBackground").then((mod) => mod.GalaxyBackground),
@@ -35,13 +34,8 @@ const anton = Anton({
 });
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-
   return (
-    <div className={`rich-shell min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-[#050505] text-[#f5f5f0]' : 'bg-[#f7f6f0] text-[#111111]'
-    } ${isDark ? 'rich-dark' : 'rich-light'}`}>
+    <div className="rich-shell rich-dark min-h-screen bg-[#050505] text-[#f5f5f0]">
       <GalaxyBackground />
       <Navbar />
       <main className="relative z-10">{children}</main>
