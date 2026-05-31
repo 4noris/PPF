@@ -411,6 +411,11 @@ section[id] {
   text-shadow: none;
 }
 
+.animated-summary-word {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
 .hero-signal-strip {
   display: flex;
   max-width: 100%;

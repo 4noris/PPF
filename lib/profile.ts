@@ -7,7 +7,7 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/norisshaikh',
   linkedinLabel: 'LinkedIn',
   summary:
-    'Broker infrastructure systems engineer building broker-side trading systems, prop firm operations tools, automation workflows, and financial infrastructure solutions. Skilled across MT5 Manager/Admin, Match-Trader, TradeLocker, bridge integrations, liquidity routing, execution monitoring, CRM operations, and broker-side automation.',
+    'Broker infrastructure engineer building trading systems, liquidity and execution infrastructure, prop-firm operations tools, and broker-side automation across MT5, Match-Trader, TradeLocker, bridges, and CRM ecosystems.',
   impact:
     'Developed real-time dashboards and broker operations tools that reduced manual monitoring effort by 60% while improving risk monitoring and operational reporting.',
 };

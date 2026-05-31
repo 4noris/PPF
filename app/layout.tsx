@@ -64,7 +64,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="MetaFive - Broker infrastructure systems, MT5 operations, bridge integrations, CRM workflows, and broker-side automation tools."
+          content="MetaFive - Broker infrastructure engineer building trading systems, liquidity and execution infrastructure, prop-firm operations tools, and broker-side automation."
         />
         <title>MetaFive | Broker Infrastructure Systems</title>
       </head>

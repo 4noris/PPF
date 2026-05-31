@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Fragment } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import { MagneticButton } from '../ui/MagneticButton';
 import { Activity, ArrowDownRight, Network, ShieldCheck } from 'lucide-react';
@@ -10,6 +11,7 @@ export function HeroSection() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const titleLetters = ['M', 'E', 'T', 'A', 'F', 'I', 'V', 'E'];
+  const summaryWords = profile.summary.split(' ');
   const heroSignals = [
     { label: 'MT5 Ops', icon: Activity },
     { label: 'Bridge Routing', icon: Network },
@@ -56,11 +58,51 @@ export function HeroSection() {
             }}
             className="mt-7 flex max-w-4xl flex-col items-center sm:mt-8"
           >
-            <p className={`hero-subtitle text-balance text-base leading-7 sm:text-lg ${
-              isDark ? 'text-white/78' : 'text-black/74'
-            }`}>
-              {profile.summary}
-            </p>
+            <motion.p
+              aria-label={profile.summary}
+              className={`hero-subtitle text-balance text-base leading-7 sm:text-lg ${
+                isDark ? 'text-white/78' : 'text-black/74'
+              }`}
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.018,
+                    delayChildren: 0.42,
+                  },
+                },
+              }}
+            >
+              {summaryWords.map((word, index) => (
+                <Fragment key={`${word}-${index}`}>
+                  <motion.span
+                    aria-hidden="true"
+                    className="animated-summary-word"
+                    variants={{
+                      hidden: {
+                        opacity: 0,
+                        y: 10,
+                        filter: 'blur(8px)',
+                      },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        filter: 'blur(0px)',
+                        transition: {
+                          duration: 0.38,
+                          ease: 'easeOut',
+                        },
+                      },
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                  {index < summaryWords.length - 1 ? ' ' : null}
+                </Fragment>
+              ))}
+            </motion.p>
 
             <div className="hero-signal-strip mt-6" aria-label="Core operating areas">
               {heroSignals.map((signal) => {
